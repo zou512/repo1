@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="session" class="com.itheima.App" factory-method="resources"/>
+<!--    <bean id="IRoleDao" factory-bean="session" factory-method="getMapper"></bean>-->
+    <bean id="user" class="com.itheima.domain.User">
+        <property name="username" value="张德帅"/>
+        <property name="address" value="平武"/>
+        <property name="role" ref="role"/>
+    </bean>
+
+    <bean id="role" class="com.itheima.domain.Role">
+        <constructor-arg name="id" value="88"/>
+        <constructor-arg name="rolename" value="啦啦啦"/>
+        <constructor-arg name="roledesc" value="德玛西亚"/>
+<!--        <constructor-arg name="users" ref="user"/>-->
+    </bean>
+</beans>
